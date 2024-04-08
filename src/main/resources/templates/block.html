@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <th:block th:each="member : ${member}" th:object="${member}">
+        <div>
+            멤버이름 : <span th:text="*{name}"></span>
+            , 주소 : <span th:text="*{addr}"></span>
+            , 생성일 : <span th:text="*{#temporals.format(created_at, 'yyyy/MM/dd')}"></span>
+        </div>
+    </th:block>
+</body>
+</html>

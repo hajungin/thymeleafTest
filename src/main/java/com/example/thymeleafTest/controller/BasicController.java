@@ -75,34 +75,48 @@ public class BasicController {
     @GetMapping("/member")
     public String member(Model model){
         quiz2(model);
-        model.addAttribute("localTime", LocalDateTime.now());
+        model.addAttribute("created_at", LocalDateTime.now());
         return "member";
     }
 
     private void quiz2(Model model) {
-        List<Member> memberlist = new ArrayList<>(
-                Arrays.asList(
-                        new Member(1,"Name_01","addr_01"),
-                        new Member(2,"Name_02","addr_02"),
-                        new Member(3,"Name_03","addr_03"),
-                        new Member(4,"Name_04","addr_04"),
-                        new Member(5,"Name_05","addr_05"),
-                        new Member(6,"Name_06","addr_06"),
-                        new Member(7,"Name_07","addr_07"),
-                        new Member(8,"Name_08","addr_08"),
-                        new Member(9,"Name_09","addr_09"),
-                        new Member(10,"Name_10","addr_10"),
-                        new Member(11,"Name_11","addr_11"),
-                        new Member(12,"Name_12","addr_12"),
-                        new Member(13,"Name_13","addr_13"),
-                        new Member(14,"Name_14","addr_14"),
-                        new Member(15,"Name_15","addr_15")
-                )
-        );
+        List<Member> memberlist = new ArrayList<>();
+//                Arrays.asList(
+//                        new Member(1,"Name_01","addr_01"),
+//                        new Member(2,"Name_02","addr_02"),
+//                        new Member(3,"Name_03","addr_03"),
+//                        new Member(4,"Name_04","addr_04"),
+//                        new Member(5,"Name_05","addr_05"),
+//                        new Member(6,"Name_06","addr_06"),
+//                        new Member(7,"Name_07","addr_07"),
+//                        new Member(8,"Name_08","addr_08"),
+//                        new Member(9,"Name_09","addr_09"),
+//                        new Member(10,"Name_10","addr_10"),
+//                        new Member(11,"Name_11","addr_11"),
+//                        new Member(12,"Name_12","addr_12"),
+//                        new Member(13,"Name_13","addr_13"),
+//                        new Member(14,"Name_14","addr_14"),
+//                        new Member(15,"Name_15","addr_15")
+//                )
+//        );
+        for (int i =1; i<=15; i++){
+            if (i<10){
+                memberlist.add(Member.of(i,"Name_0"+i,"addr_0"+i,LocalDateTime.now()));
+            } else {
+                memberlist.add(Member.of(i,"Name_"+i,"addr_"+i,LocalDateTime.now()));
+            }
+        }
         model.addAttribute("member",memberlist);
         for(Member item : memberlist){
+            System.out.println(item);
 
         }
 
+    }
+
+    @GetMapping("/block")
+    public String block(Model model){
+        quiz2(model);
+        return "block";
     }
 }

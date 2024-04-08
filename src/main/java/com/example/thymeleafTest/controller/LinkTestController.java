@@ -12,13 +12,15 @@ public class LinkTestController {
     public String main(){
         return "articles/main";
     }
-    @GetMapping("/articles/list")
+    @GetMapping("/member")
     public String list_all(){
         return "articles/list_all";
     }
     @GetMapping("/articles/{id}")
-    public String list_one(@PathVariable("id") int id){
-        return "articles/list_one";
+    public String list_one(@PathVariable("id") int id,
+                           @RequestParam("name") String name){
+        String title = "/articles/member/{" + id + "}";
+        return "articles/member-list";
     }
 
     @GetMapping("/articles/create")
