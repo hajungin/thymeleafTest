@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>
+        <span th:text = "${id}"></span>
+        번 게시글의
+        <span th:text = "${article}"></span>
+        번째 댓글 삭제 완료
+    </h1>
+    <h2><a th:href="@{/main}">돌아가기</a></h2>
+</body>
+</html>

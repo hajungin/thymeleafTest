@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>
+        <span th:text = "${name}"></span>의 키는
+        <span th:text = "${height}"></span>, 몸무게는
+        <span th:text = "${weight}"></span>입니다
+    </h1>
+    <h2><a th:href="@{/main}">돌아가기</a></h2>
+</body>
+</html>

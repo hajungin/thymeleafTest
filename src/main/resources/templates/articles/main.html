@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>게시판 관리</h1>
+    <ul>
+        <li>
+            <a th:href="@{/articles/list}">전체 게시글 읽기</a>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li th:with = "id=${7}">
+            <a th:href="@{/articles/{id}(id=${id})}">게시글 하나 읽기</a>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li th:with = "name=${name}, weight=${0}, height=${0}">
+            <a th:href="@{/articles/create(name=${name},weight=${weight},
+                    height=${height})}">개인정보</a>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li>
+            <a th:href="@{/articles/update}">업데이트 이동</a>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li th:with = "id=${7}">
+            <a th:href="@{/articles/{id}/update(id=${id})}">수정 폼 로딩</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li th:with = "id=${3}">
+            <a th:href="@{/articles/{id}/delete(id=${id})}">삭제</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li th:with = "id=${11}">
+            <a th:href="@{/articles/{id}/articleComment(id=${id})}">댓글보기</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li th:with = "id=${15}, article=${3}">
+            <a th:href="@{/articles/{id}/articleComments/{article}/delete(id=${id}, article=${article})}">
+                답글삭제하기</a>
+        </li>
+    </ul>
+</body>
+</html>

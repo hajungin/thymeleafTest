@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>안녕</h1>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>addr</th>
+            <th>created_at</th>
+        </tr>
+        <tr th:each="member : ${member}">
+            <td th:text="${member.id}">1</td>
+            <td th:text="${member.name}">가</td>
+            <td th:text="${member.addr}">나</td>
+            <td>
+                <span th:text="${#temporals.format(localTime, 'yyy-MM-dd')}"></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
