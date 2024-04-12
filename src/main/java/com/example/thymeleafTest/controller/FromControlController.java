@@ -57,7 +57,7 @@ private Email[] emails(){
         }
     log.info("Login.email = " + dto.getEmail());
     log.info("Login.phone = " + dto.getPhone());
-    return "/form-test/fromControlResultView";
+    return "/form-test/formControlResultView";
     }
 
     @ModelAttribute("agree")
