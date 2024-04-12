@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="py-4 text-center">
+        <h2>회원가입</h2>
+    </div>
+    <form th:action method="post" th:object="${dto}">
+        <div>
+            <label for="id">회원아이디</label>
+            <input type="text" id="name" th:field="*{id}" class="form-control">
+        </div>
+
+
+        <div>
+            <label for="password1">비밀번호</label>
+            <input type="text" id="password1" th:field="*{password1}" class="form-control">
+        </div>
+
+
+        <div>
+            <label for="password2">비밀번호 확인</label>
+            <input type="text" id="password2" th:field="*{password2}" class="form-control">
+        </div>
+
+
+        <div>
+            <label for="name">성명</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control">
+        </div>
+
+        <div>
+            <label for="birth">생년월일</label>
+            <input type="text" id="birth" th:field="*{birth}" class="form-control">
+        </div>
+
+        <div th:each="lang : ${language}" class="form-check form-check-inline">
+            <!--반복문 th:each-->
+            <input type="radio" th:field="*{language}" th:value="${lang.name()}"
+
+                   class="form-check-input">
+            <!--radio type 사용,th:field 이름과 dto의 이름이 같아야한다-->
+            <!--class는 css 타입 참조하는 역할-->
+            <label th:for="${#ids.prev('language')}"
+                   th:text="${lang.description}" class="form-check-label"></label>
+            <!--#ids.prev는 이전 태그의 ID를 가져오는 기능-->
+        </div>
+
+
+        <div>
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" th:field="*{email}" class="form-control">
+        </div>
+        <div>메일선택</div>
+        <select th:field="*{country}" class="form-select">
+            <option value="">*******국 가 를 선 택 하 세 요*********</option>
+            <option th:each="c : ${country}" th:value="${c.name()}"
+                    th:text="${c.description}"></option>
+        </select>
+
+
+        <div>
+            <label for="phone">휴대폰</label>
+            <input type="text" id="phone" th:field="*{phone}" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" type="submit">전송</button>
+        <button class="btn btn-primary" type="cancle">취소</button>
+
+
+
+
+
+
+
+
+
+
+        <div>CheckBox Test</div>
+        <div>
+            <div class="form-check">
+                <input type="checkbox" th:field="${dto.trueOrFalse}" class="form-check-input">
+                <label for="trueOrFalse" class="form-check-label">True or False</label>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div>
+            <div>취미 선택(다중 선택 가능)</div>
+            <div th:each="hobby : ${hobbies}" class="form-check">
+                <input type="checkbox" th:field="*{hobbies}" th:value="${hobby.key}"
+                       class="form-check-input">
+                <label th:for="${#ids.prev('hobbies')}" th:text="${hobby.value}"
+                       class="form-check-label"></label>
+            </div>
+        </div>
+        <br>
+        <div>전공 선택(한 개만 선택 가능)</div>
+        <div th:each="lang : ${language}" class="form-check form-check-inline">
+            <!--반복문 th:each-->
+            <input type="radio" th:field="*{language}" th:value="${lang.name()}"
+
+                   class="form-check-input">
+            <!--radio type 사용,th:field 이름과 dto의 이름이 같아야한다-->
+            <!--class는 css 타입 참조하는 역할-->
+            <label th:for="${#ids.prev('language')}"
+                   th:text="${lang.description}" class="form-check-label"></label>
+            <!--#ids.prev는 이전 태그의 ID를 가져오는 기능-->
+        </div>
+        <br>
+        <hr class="my-4">
+        <div>국가 선택</div>
+
+
+
+    </form>
+</div>
+</body>
+</html>

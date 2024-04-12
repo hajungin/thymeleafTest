@@ -16,7 +16,7 @@
     </div>
     <hr class="my-4">
     <br>
-    <form th:action="@{/fromControl}" method="post" th:object="${dto}">
+    <form th:action="@{/formControl}" method="post" th:object="${dto}">
         <div class="input-group">
             <h3>*회원아이디</h3>
             <label for="id"></label>
@@ -105,7 +105,8 @@
         <br>
         <div class="py-4 text-center">
         <button type="submit" class="btn btn-primary">확인</button>
-        <button type="submit" class="btn btn-primary">취소</button>
+        <button type="button"  class="btn btn-secondary">취소</button>
+            <a th:href="@{/main}">돌아가기</a>
         </div>
     </form>
     </div>
