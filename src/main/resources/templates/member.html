@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "www.thymleaf.org">
+<html xmlns:th = "www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,9 +16,13 @@
         <tr th:each="member, state : ${member}" th:object="${member}">
             <td th:text="${state.count}"></td>
             <td th:text="*{name}">
-                <a th:href="@{/articles/member{id}(id=${state.count}, name=*{name})" th:text="*{name}"></a>
+                <a th:href="@{/articles/member(id=${state.count}, name=${name})}" th:text="${name}"></a>
 <!--                /aritcles/member/3?name=Name_03-->
             </td>
+<!--            <td>-->
+<!--                <a th:href="@{/articles/member(id=${state.count}, name=${name})}" th:text="${name}"></a>-->
+<!--            </td>-->
+
             <td th:text="*{addr}"></td>
             <td>
                 <span th:text="*{#temporals.format(created_at, 'yyy-MM-dd')}"></span>
