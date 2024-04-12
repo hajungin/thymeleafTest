@@ -8,7 +8,9 @@ import java.util.List;
 public class FormDto {
     private String name;
     private boolean trueOrFalse;
-    private List<String> hobbies;
+    private List<String> hobbies;   //multi-checkbox
+    private String language;    //radio-button
+    private String country;     //select
 
 
 }

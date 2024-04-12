@@ -33,6 +33,28 @@
                                class="form-check-label"></label>
                     </div>
                 </div>
+                <br>
+                <div>전공 선택(한 개만 선택 가능)</div>
+                <div th:each="lang : ${language}" class="form-check form-check-inline">
+                    <!--반복문 th:each-->
+                    <input type="radio" th:field="*{language}" th:value="${lang.name()}"
+
+                           class="form-check-input">
+                    <!--radio type 사용,th:field 이름과 dto의 이름이 같아야한다-->
+                    <!--class는 css 타입 참조하는 역할-->
+                    <label th:for="${#ids.prev('language')}"
+                           th:text="${lang.description}" class="form-check-label"></label>
+                    <!--#ids.prev는 이전 태그의 ID를 가져오는 기능-->
+                </div>
+                <br>
+                <hr class="my-4">
+                <div>국가 선택</div>
+                    <select th:field="*{country}" class="form-select">
+                        <option value="">*******국 가 를 선 택 하 세 요*********</option>
+                        <option th:each="c : ${country}" th:value="${c.name()}"
+                                th:text="${c.description}"></option>
+                    </select>
+
                 <button class="btn btn-primary" type="submit">전송</button>
             </form>
         </div>
